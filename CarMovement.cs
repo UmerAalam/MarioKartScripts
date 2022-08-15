@@ -46,19 +46,21 @@ public class CarMovement : MonoBehaviour
         {
             if(rotationSpeed > 0)
             {
-                while(rotationSpeed <= 0)
+                do
                 {
                     rotationSpeed = 0f;
                     rotationSpeed -= rotationTime * Time.deltaTime;
                 }
+                while (rotationSpeed <= 0);
             }
             if (rotationSpeed < 0)
             {
-                while(rotationSpeed >= 0)
+                do
                 {
                     rotationSpeed = 0f;
                     rotationSpeed += rotationTime * Time.deltaTime;
                 }
+                while (rotationSpeed >= 0);
             }
 
         }
@@ -96,7 +98,7 @@ public class CarMovement : MonoBehaviour
             if(rotationSpeed < 0)
                 rotationWheels.transform.localRotation = Quaternion.Euler(transform.rotation.x,rotationSpeed,transform.rotation.z);
             if(rotationSpeed == 0)
-                rotationWheels.transform.localRotation = Quaternion.Euler(transform.rotation.x, 0, transform.rotation.z);
+                rotationWheels.transform.localRotation = Quaternion.Euler(transform.rotation.x, rotationSpeed, transform.rotation.z);
         }
     }
 }
